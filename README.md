@@ -12,6 +12,15 @@ This project focuses on detecting plant diseases using deep learning techniques.
 - **Flask App:** A simple web app built using Flask for user interaction.
 - **Open Source Contribution:** Contributions to improve the model and UI are welcome.
 
+
+## Authors
+
+- [@sandipanrakshit34](https://github.com/sandipanrakshit34)
+
+##
+
+
+
 ## How to Run the Project
 
 ### Prerequisites
