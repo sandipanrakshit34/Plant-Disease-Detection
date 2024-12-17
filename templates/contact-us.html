@@ -1,0 +1,166 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+Contact Us
+{% endblock pagetitle %}
+
+{% block body %}
+
+<!-- Adding a custom font from Google Fonts -->
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #d1eaff, #f0f8ff);
+            color: #333;
+        }
+
+        .page-header {
+            text-align: center;
+            padding-top: 5%;
+            padding-bottom: 5%;
+        }
+
+        .page-header h1 {
+            font-weight: 600;
+            color: #1E5128;
+            font-size: 3rem;
+        }
+
+        .page-header p {
+            font-weight: 400;
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .contact-card {
+            background-color: #fff;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-card h3 {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .contact-card p {
+            font-weight: 300;
+            color: #7f8c8d;
+        }
+
+        .contact-card .email {
+            font-weight: 500;
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .contact-card .email:hover {
+            text-decoration: underline;
+        }
+
+        .contact-card i {
+            color: #3498db;
+            margin-right: 8px;
+        }
+
+        /* Responsiveness */
+        @media (max-width: 768px) {
+            .contact-card {
+                margin-bottom: 20px;
+            }
+
+            .row {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<div class="page-header">
+    <h1><b>📞Contact-Us📞</b></h1>
+    <p class="lead">For Any Queries & Suggestions Contact Us. We Are Happy To Help.</p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <!-- Contact: Sandipan Rakshit -->
+        <div class="col-md-4 mb-4">
+            <div class="contact-card">
+                <h3>Sandipan Rakshit</h3>
+                <p>Hi, I am Sandipan Rakshit. For any queries, feel free to reach out via the email below. I am always happy to assist with any questions or concerns you may have, and I'll do my best to provide prompt and helpful responses. Don't hesitate to get in touch!</p>
+                <div>
+                    <h5>Contact:</h5>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="email" href="mailto:sandipanrakshit6@gmail.com">sandipanrakshit6@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact: Mrigangana Sarkar -->
+        <div class="col-md-4 mb-4">
+            <div class="contact-card">
+                <h3>Mrigangana Sarkar</h3>
+                <p>Hi, I am Mrigangana Sarkar. For any assistance, please contact me through the email provided below. I am more than happy to help with any inquiries or concerns you may have and will ensure to respond at the earliest. Feel free to reach out!</p>
+                <div>
+                    <h5>Contact:</h5>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="email" href="mailto:mriganganasarkar@gmail.com">mriganganasarkar@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact: Upayan Chakraborty -->
+        <div class="col-md-4 mb-4">
+            <div class="contact-card">
+                <h3>Upayan Chakraborty</h3>
+                <p>Hi, I am Upayan Chakraborty. Reach out to me through the following email for any assistance. I’ll be happy to help with any questions you have and will get back to you as soon as possible. Don’t hesitate to contact me for further details or support!</p>
+                <div>
+                    <h5>Contact:</h5>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="email" href="mailto:upayanchakra@gmail.com">upayanchakra@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Contact: Souvik Ghosh -->
+        <div class="col-md-6 mb-4">
+            <div class="contact-card">
+                <h3>Souvik Ghosh</h3>
+                <p>Hi, I am Souvik Ghosh. Contact me via the email below for any inquiries or assistance. I’ll be happy to help with any questions you may have and will respond as promptly as possible. Feel free to reach out anytime for further details or support!</p>
+                <div>
+                    <h5>Contact:</h5>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="email" href="mailto:souvikgh03@gmail.com">souvikgh03@gmail.com</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact: Prerana Maiti -->
+        <div class="col-md-6 mb-4">
+            <div class="contact-card">
+                <h3>Prerana Maiti</h3>
+                <p>Hi, I am Prerana Maiti. You can contact me through the following email for assistance or any inquiries. I’ll be happy to help with any questions you have and will get back to you as soon as possible. Feel free to reach out anytime!</p>
+                <div>
+                    <h5>Contact:</h5>
+                    <i class="fa-solid fa-envelope"></i>
+                    <a class="email" href="mailto:preranamaiti@gmail.com">preranamaiti@gmail.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %}

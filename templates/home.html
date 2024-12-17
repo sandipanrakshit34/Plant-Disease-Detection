@@ -1,0 +1,189 @@
+{% extends 'base.html' %}
+{% block pagetitle %}
+Plant Disease Detection
+{% endblock pagetitle %}
+{% block body %}
+<style>
+  /* Global Styles */
+  body {
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+  }
+
+  h1, h2, p {
+    font-family: 'Lobster', cursive;
+  }
+
+  .lead {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    color: black;
+  }
+
+  .note-title {
+    color: #D32F2F;
+    font-size: 2.2rem;
+  }
+
+  /* Title Customization */
+  .custom-title {
+    color: #1E5128;
+    font-size: 3rem;
+    font-weight: bold;
+  }
+
+  /* Button Styles */
+  .btn-custom {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .btn-custom:hover {
+    background-color: #1E5128;
+    transform: scale(1.1);
+  }
+
+  /* Card Styles */
+  .card-custom {
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 15px;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .card-custom img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .card-custom:hover img {
+    transform: scale(1.05);
+  }
+
+  .card-custom:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Mobile and Desktop View */
+  @media only screen and (max-width: 830px) {
+    .laptop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+
+  @media (min-width: 830px) {
+    .mobile {
+      display: none;
+    }
+    .laptop {
+      display: block;
+    }
+  }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<!-- Laptop View -->
+<div class="laptop">
+  <div class="row text-center">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="custom-title mt-4">🍁 Plant Disease Detection 🍁</h1>
+      <p class="lead">This AI Engine Will Help To Detect Disease From The Following Fruits And Vegetables</p>
+      <a href="/index">
+        <button class="btn-custom mt-3">Launch AI Engine</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cards Grid -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      {% for fruit, link in [
+        ('Apple', 'https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg'),
+        ('Blueberry', 'https://www.supermarketperimeter.com/ext/resources/0430-blueberries.png?t=1588260305&width=1080'),
+        ('Cherry', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/health_benefits_of_cherries_slideshow/1800x1200_health_benefits_of_cherries_slideshow.jpg'),
+        ('Corn', 'https://cdn.pixabay.com/photo/2023/05/30/14/49/corn-8028831_1280.jpg'),
+        ('Grape', 'https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg'),
+        ('Orange', 'https://c4.wallpaperflare.com/wallpaper/355/357/188/white-and-brown-flying-bird-wallpaper-preview.jpg'),
+        ('Peach', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/the_health_benefits_of_peaches_slideshow/thinkstock_rf_peaches.jpg?resize=650px:*'),
+        ('Pepper Bell', 'https://cdn.pixabay.com/photo/2014/08/18/23/11/bell-peppers-421087_1280.jpg'),
+        ('Potato', 'https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg'),
+        ('Raspberry', 'https://images.pexels.com/photos/52536/raspberry-fruits-fresh-red-52536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+        ('Soybean', 'https://m.economictimes.com/thumb/msid-66988154,width-1200,height-900,resizemode-4,imgsize-211276/soyabean-agencies.jpg'),
+        ('Squash', 'https://post.healthline.com/wp-content/uploads/2020/08/squash-fruit-or-vegetable-732x549-thumbnail-732x549.jpg'),
+        ('Strawberry', 'https://images.indianexpress.com/2020/02/strawberry-1200.jpg'),
+        ('Tomato', 'https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg')
+      ] %}
+      <div class="col-md-3">
+        <div class="card-custom">
+          <img src="{{ link }}" alt="{{ fruit }}">
+          <p class="lead mt-3">{{ fruit }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!-- Mobile View - Automatically displayed on small screens -->
+<div class="mobile p-5">
+  <div class="row mb-5 text-center">
+    <div class="col-lg-10 mx-auto">
+      <h1 class="custom-title">🍁 Plant Disease Detection 🍁</h1>
+      <p class="lead">Detect diseases in fruits and vegetables with AI.</p>
+      <a href="/index">
+        <button class="btn-custom mt-3">Launch AI Engine</button>
+      </a>
+    </div>
+  </div>
+
+  <!-- Cards Grid for Mobile -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      {% for fruit, link in [
+        ('Apple', 'https://post.healthline.com/wp-content/uploads/2020/09/Do_Apples_Affect_Diabetes_and_Blood_Sugar_Levels-732x549-thumbnail-1-732x549.jpg'),
+        ('Blueberry', 'https://www.supermarketperimeter.com/ext/resources/0430-blueberries.png?t=1588260305&width=1080'),
+        ('Cherry', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/slideshows/health_benefits_of_cherries_slideshow/1800x1200_health_benefits_of_cherries_slideshow.jpg'),
+        ('Corn', 'https://cdn.pixabay.com/photo/2023/05/30/14/49/corn-8028831_1280.jpg'),
+        ('Grape', 'https://i.ndtvimg.com/i/2015-09/grapes_625x350_61443376353.jpg'),
+        ('Orange', 'https://c4.wallpaperflare.com/wallpaper/355/357/188/white-and-brown-flying-bird-wallpaper-preview.jpg'),
+        ('Peach', 'https://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/articles/health_tools/the_health_benefits_of_peaches_slideshow/thinkstock_rf_peaches.jpg?resize=650px:*'),
+        ('Pepper Bell', 'https://cdn.pixabay.com/photo/2014/08/18/23/11/bell-peppers-421087_1280.jpg'),
+        ('Potato', 'https://m.economictimes.com/thumb/height-450,width-600,imgsize-111140,msid-72862126/potato-getty.jpg'),
+        ('Raspberry', 'https://images.pexels.com/photos/52536/raspberry-fruits-fresh-red-52536.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'),
+        ('Soybean', 'https://m.economictimes.com/thumb/msid-66988154,width-1200,height-900,resizemode-4,imgsize-211276/soyabean-agencies.jpg'),
+        ('Squash', 'https://post.healthline.com/wp-content/uploads/2020/08/squash-fruit-or-vegetable-732x549-thumbnail-732x549.jpg'),
+        ('Strawberry', 'https://images.indianexpress.com/2020/02/strawberry-1200.jpg'),
+        ('Tomato', 'https://images-prod.healthline.com/hlcmsresource/images/AN_images/tomatoes-1296x728-feature.jpg')
+      ] %}
+      <div class="col-md-3">
+        <div class="card-custom">
+          <img src="{{ link }}" alt="{{ fruit }}">
+          <p class="lead mt-3">{{ fruit }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock body %}
