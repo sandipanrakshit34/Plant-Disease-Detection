@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+
+{% block pagetitle %}
+    Crop Recommendation
+{% endblock pagetitle %}
+
+{% block body %}
+
+<!-- Page Title Section -->
+<div class="row mb-5 text-center text-white">
+    <div class="col-12 mx-auto">
+        <h1 class="display-4" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 700; color: #2c6e2e; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); padding-top: 2%;">🌱 <b>Crop Recommendation System 🌱</b></h1>
+    </div>
+</div>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Main Container -->
+<div class="container my-5" style="font-family: 'Roboto', sans-serif;">
+
+    <!-- Form Section -->
+    <form action="/predict" method="POST">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Nitrogen" class="form-label"><b>Nitrogen (N)</b></label>
+                </div>
+                <input type="number" id="Nitrogen" name="Nitrogen" placeholder="Enter Nitrogen" class="form-control shadow-sm input-effect" required step="0">
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Phosporus" class="form-label"><b>Phosphorus (P)</b></label>
+                </div>
+                <input type="number" id="Phosporus" name="Phosporus" placeholder="Enter Phosphorus" class="form-control shadow-sm input-effect" required step="0">
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Potassium" class="form-label"><b>Potassium (K)</b></label>
+                </div>
+                <input type="number" id="Potassium" name="Potassium" placeholder="Enter Potassium" class="form-control shadow-sm input-effect" required step="0">
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Temperature" class="form-label"><b>Temperature (°C)</b></label>
+                </div>
+                <input type="number" step="0.01" id="Temperature" name="Temperature" placeholder="Enter Temperature in °C" class="form-control shadow-sm input-effect" required>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Humidity" class="form-label"><b>Humidity (%)</b></label>
+                </div>
+                <input type="number" step="0.01" id="Humidity" name="Humidity" placeholder="Enter Humidity in %" class="form-control shadow-sm input-effect" required>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Ph" class="form-label"><b>pH</b></label>
+                </div>
+                <input type="number" step="0.01" id="Ph" name="Ph" placeholder="Enter pH value" class="form-control shadow-sm input-effect" required>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-4 mb-4">
+                <div class="label-box">
+                    <label for="Rainfall" class="form-label"><b>Rainfall (mm)</b></label>
+                </div>
+                <input type="number" step="0.01" id="Rainfall" name="Rainfall" placeholder="Enter Rainfall in mm" class="form-control shadow-sm input-effect" required>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="row mt-4">
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg" style="background-color: #4CAF50; border-radius: 8px; padding: 12px 30px; transition: all 0.3s ease-in-out; font-weight: 600; box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);">
+                    Get Recommendation
+                </button>
+            </div>
+        </div>
+    </form>
+
+    <!-- Display Recommendation -->
+    {% if result %}
+        <div class="card bg-dark text-white mt-4" style="width: 100%; max-width: 18rem; margin: 0 auto; border-radius: 10px; transition: all 0.3s ease;">
+            <img src="https://d112y698adiu2z.cloudfront.net/photos/production/software_photos/002/554/302/datas/gallery.jpg" class="card-img-top" alt="Crop Image" style="border-radius: 10px 10px 0 0;">
+            <div class="card-body">
+                <h5 class="card-title" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-weight: 700; font-size: 1.2rem;">Recommended Crop for Cultivation:</h5>
+                <p class="card-text" style="font-size: 1.1rem; line-height: 1.5;">{{ result }}</p>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+<!-- Footer Section -->
+<div class="footer text-center mt-5" style="background-color: #2c6e2e; padding: 20px; color: white; border-radius: 0 0 10px 10px;">
+    <p style="font-family: 'Roboto', sans-serif;">&copy; 2024 Crop Recommendation System. All rights reserved.</p>
+</div>
+
+<style>
+    /* Global Styles */
+    body {
+        background-color: #c0f8e5;
+    }
+
+    /* Input Box Animation and Effects */
+    .input-effect {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 1rem;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .input-effect:hover {
+        border-color: #4CAF50;
+        box-shadow: 0 5px 10px rgba(76, 175, 80, 0.3);
+        transform: translateY(-3px);
+    }
+
+    .input-effect:focus {
+        border-color: #45a049;
+        outline: none;
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.5);
+        transform: translateY(-5px);
+    }
+
+    /* Label Box Style */
+    .label-box {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    /* Submit Button */
+    .btn-primary:hover {
+        background-color: #45a049;
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+</style>
+
+{% endblock body %}

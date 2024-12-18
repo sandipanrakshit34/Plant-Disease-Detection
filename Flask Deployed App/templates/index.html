@@ -1,0 +1,145 @@
+<html>
+{% extends 'base.html' %}
+{% block pagetitle %}
+AI Engine
+{% endblock pagetitle %}
+{% block body %}
+<div class="container-fluid" style="background-color: #e9f3d7;">
+    <!-- Header Section -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <div class="row mb-5 text-center">
+        <div class="col-lg-10 mx-auto">
+            <h1 class="display-3 font-weight-bold" style="color: #1E5128; font-size: 3rem; font-weight: bold; font-family: 'Poppins', sans-serif; animation: fadeIn 2s ease-in-out;">
+                <br>
+                🍀 AI Engine 🍀
+            </h1>
+            <p class="lead" style="font-size: 1.2rem; color: #333; font-family: 'Poppins', sans-serif; animation: fadeIn 3s ease-in-out;">
+                Let AI Engine Help You Detect Plant Diseases with Ease
+            </p>
+        </div>
+    </div>
+
+    <!-- Content Section -->
+    <div class="row mb-5">
+        <!-- Disease Detection Explanation -->
+        <div class="col-md-4 col-12 mb-4" style="animation: slideUp 1s ease-in-out;">
+            <div class="p-4 bg-white shadow rounded-lg transition-all transform hover:scale-105 hover:shadow-lg hover:border-primary hover:bg-light">
+                <h5 class="text-primary font-weight-bold mb-3">Why is it necessary to detect disease in plants?</h5>
+                <p class="text-muted" style="font-size: 1.1rem; line-height: 1.6;">
+                    Plant diseases can harm crop growth, leading to lower yields and quality. Early detection is essential to prevent further damage and control the spread. By identifying diseases early, farmers can take quick action, reducing the need for costly treatments and excessive pesticide use. This helps conserve resources and promotes healthier plants. Early diagnosis also allows farmers to choose the best solutions for better crop quality and higher yields. Ultimately, early detection supports sustainable farming and food security, ensuring a stable and healthy food supply for future generations.
+                </p>
+            </div>
+        </div>
+
+        <!-- Image Upload Section -->
+        <div class="col-md-4 col-12 mb-4" style="animation: slideUp 1.5s ease-in-out;">
+            <div class="p-4 bg-white shadow rounded-lg text-center transition-all transform hover:scale-105 hover:shadow-lg hover:border-primary hover:bg-light">
+                <img src="https://cipotato.org/wp-content/uploads/2020/03/Phone-App-2-PUT-1024x685.jpg" class="img-fluid mb-4 rounded-pill" alt="Plant Image" style="height: 300px; width: 300px; object-fit: cover;">
+                <form action="/submit" method="POST" enctype="multipart/form-data">
+                    <div class="custom-file mb-4">
+                        <input type="file" id="actual-btn" hidden name="image" />
+                        <label for="actual-btn" class="btn btn-outline-primary">Choose File</label>
+                        <span id="file-chosen" class="d-block text-muted mt-2">No file chosen</span>
+                    </div>
+                    <p class="text-muted mb-4">Simply upload a leaf image of your plant and let AI detect the disease.</p>
+                    <button type="submit" class="btn btn-lg btn-outline-success transition-all hover:bg-success hover:text-white hover:scale-110">
+                        Submit
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Prevention Tips Section -->
+        <div class="col-md-4 col-12 mb-4" style="animation: slideUp 2s ease-in-out;">
+            <div class="p-4 bg-white shadow rounded-lg transition-all transform hover:scale-105 hover:shadow-lg hover:border-primary hover:bg-light">
+                <h5 class="text-primary font-weight-bold mb-3">Prevent Plant Diseases by Following These Tips:</h5>
+                <ol class="list-group list-group-flush">
+                    <li class="list-group-item hover:bg-info">Follow Good Sanitation Practices</li>
+                    <li class="list-group-item hover:bg-info">Fertilize to Keep Your Plants Healthy</li>
+                    <li class="list-group-item hover:bg-info">Inspect Plants for Diseases Before Bringing Them Home</li>
+                    <li class="list-group-item hover:bg-info">Allow Soil to Warm Before Planting</li>
+                    <li class="list-group-item hover:bg-info">Rotate Crops to Ensure a Healthy Vegetable Garden</li>
+                    <li class="list-group-item hover:bg-info">Ensure Good Air Circulation</li>
+                    <li class="list-group-item hover:bg-info">Remove Diseased Stems and Foliage</li>
+                </ol>
+                <a href="https://www.thespruce.com/prevent-plant-diseases-in-your-garden-2539511" target="_blank" class="btn btn-outline-info btn-block mt-4 transition-all hover:bg-info hover:text-white">
+                    Learn More
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+    const fileChosen = document.getElementById('file-chosen');
+    
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+
+{% endblock body %}
+
+<!-- Add this in the <head> section for the animations -->
+<style>
+    /* Fade In Animation */
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    /* Slide-up animation for content */
+    @keyframes slideUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Hover Effects */
+    .transition-all {
+        transition: all 0.3s ease;
+    }
+
+    .hover:scale-105:hover {
+        transform: scale(1.05);
+    }
+
+    .hover:scale-110:hover {
+        transform: scale(1.1);
+    }
+
+    .hover:shadow-lg:hover {
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .hover:border-primary:hover {
+        border-color: #0d6efd;
+    }
+
+    .hover:bg-success:hover {
+        background-color: #28a745;
+    }
+
+    .hover:text-white:hover {
+        color: white;
+    }
+
+    .hover:bg-info:hover {
+        background-color: #17a2b8;
+    }
+
+    .hover:bg-light:hover {
+        background-color: #f8f9fa;
+    }
+</style>
+</html>
